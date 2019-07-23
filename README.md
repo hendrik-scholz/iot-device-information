@@ -6,11 +6,7 @@ You can run iot-device-information on your IoT device to give detailed informati
 
 ## Requirements
 
-In order to use iot-device-information you need ...
-
-* ... an installation of Node.js
-
-iot-device-information was developed with Node.js version: v10.15.1.
+In order to use iot-device-information you need an installation of Node.js. iot-device-information was developed with Node.js version v10.15.1.
 
 ## Features
 
@@ -32,7 +28,7 @@ Returns information about the device, the device version, and its purpose.
 * Endpoint: /identification
 * File containing the response: identification.json
 
-Replace the values given in authorization.json with values for your device.
+Replace the values given in identification.json with values for your device.
 
 ### Three Laws Of Robotics
 
