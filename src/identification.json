@@ -1,0 +1,9 @@
+{
+    "company": "USR",
+    "device": "Demolition Robot",
+    "schedule": [{
+        "dateTime": "2004-07-07T08:00:00.00",
+        "description": "demolition"
+    }],
+    "version": "9-4"
+}
