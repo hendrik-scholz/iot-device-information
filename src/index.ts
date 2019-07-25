@@ -11,4 +11,4 @@ app.get("/identification", (req: Request, res: Response) => res.send(identificat
 app.get("/authorization", (req: Request, res: Response) => res.send(authorization));
 app.get("/threelawsofrobotics", (req: Request, res: Response) => res.send(threeLawsOfRobotics));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`iot-device-information app listening on port ${port}!`));
