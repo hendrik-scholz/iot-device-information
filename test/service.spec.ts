@@ -34,6 +34,19 @@ describe('iot-device-information', () => {
                 });
         });
 
+        it('should test the geo position endpoint', (done) => {
+            axios.get(`http://${host}:${port}/geoposition`)
+                .then((response) => {
+                    expect(response.status).to.equal(200);
+                    expect(response.data).to.have.all.keys('latitude', 'longitude');
+                    expect(response.data).not.to.have.keys('default');
+                    done();
+                })
+                .catch((error) => {
+                    done(error);
+                });
+        });
+
         it('should test the threelawsofrobotics endpoint', (done) => {
             axios.get(`http://${host}:${port}/threelawsofrobotics`)
             .then((response) => {

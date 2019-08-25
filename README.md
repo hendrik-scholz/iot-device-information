@@ -20,6 +20,16 @@ Returns information about the owner of the device.
 
 Replace the values given in authorization.json with values for your device.
 
+### Geo Position
+
+Returns information about the geo position of the device.
+
+* Request method: GET
+* Endpoint: /geoposition
+* File containing the response: geoposition.json
+
+Replace the values given in geoposition.json with values for your device.
+
 ### Identification
 
 Returns information about the device, the device version, and its purpose.
@@ -31,6 +41,8 @@ Returns information about the device, the device version, and its purpose.
 Replace the values given in identification.json with values for your device.
 
 ### Three Laws Of Robotics
+
+Returns the Three Laws of Robotics.
 
 * Request method: GET
 * Endpoint: /threelawsofrobotics
