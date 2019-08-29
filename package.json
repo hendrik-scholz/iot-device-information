@@ -6,9 +6,10 @@
   "scripts": {
     "start": "npm run build:live",
     "build": "tsc -p .",
-    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/service.ts",
-    "test": "mocha -r ts-node/register test/**/service.spec.ts",
-    "test:endpoints": "start-server-and-test start http://127.0.0.1:3000/authorization test"
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "test:messages": "mocha -r ts-node/register test/**/messageProvider.spec.ts",
+    "test:index": "mocha -r ts-node/register test/**/index.spec.ts",
+    "test:endpoints": "start-server-and-test start http://127.0.0.1:3000/authorization test:index"
   },
   "keywords": [],
   "author": "",

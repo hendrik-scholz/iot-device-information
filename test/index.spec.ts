@@ -12,7 +12,7 @@ describe('iot-device-information', () => {
             axios.get(`http://${host}:${port}/authorization`)
                 .then((response) => {
                     expect(response.status).to.equal(200);
-                    expect(response.data).to.have.all.keys('authorization', 'deedOwner');
+                    expect(response.data).to.have.all.keys('name', 'role', 'deedOwner');
                     expect(response.data).not.to.have.keys('default');
                     done();
                 })
