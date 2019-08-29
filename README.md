@@ -10,6 +10,10 @@ In order to use iot-device-information you need an installation of Node.js. iot-
 
 ## Features
 
+### Register
+
+Publishes a register message to an MQTT broker on startup. The connection details can be edited in the configuration.json.
+
 ### Authorization
 
 Returns information about the owner of the device.
