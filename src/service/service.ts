@@ -1,7 +1,10 @@
 import express from 'express';
 import { Express, Request, Response } from 'express';
 
+import { createLogger } from '../logger/logger';
 import { getAuthorization, getGeoposition, getIdentification, getThreeLawsOfRobotics } from '../messages/messageProvider';
+
+const logger = createLogger();
 
 function startService(): void {
     const app: Express = express();
@@ -12,7 +15,7 @@ function startService(): void {
     app.get('/identification', (req: Request, res: Response) => res.send(getIdentification()));
     app.get('/threelawsofrobotics', (req: Request, res: Response) => res.send(getThreeLawsOfRobotics()));
 
-    app.listen(port, () => console.log(`iot-device-information app listening on port ${port}!`));
+    app.listen(port, () => logger.info(`iot-device-information app listening on port ${port}!`));
 }
 
 export { startService };

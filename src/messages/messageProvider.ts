@@ -4,9 +4,10 @@ import identification from './identification.json';
 import threeLawsOfRobotics from './threeLawsOfRobotics.json';
 
 const registrationMessage = {
-    identification: identification,
-    authorization: authorization,
-    geoposition: geoposition
+    authorization,
+    geoposition,
+    identification,
+    timestamp: getDateAsIsoString()
 };
 
 function getAuthorization(): any {
@@ -26,12 +27,7 @@ function getThreeLawsOfRobotics(): any {
 }
 
 function getRegistrationMessage(): any {
-    return {
-        identification: identification,
-        authorization: authorization,
-        geoposition: geoposition,
-        timestamp: getDateAsIsoString()
-    };
+    return registrationMessage;
 }
 
 function getDateAsIsoString() {

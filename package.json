@@ -7,18 +7,22 @@
     "start": "npm run build:live",
     "build": "tsc -p .",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "test:logger": "mocha --timeout 5000 -r ts-node/register test/**/logger.spec.ts",
     "test:messages": "mocha -r ts-node/register test/**/messageProvider.spec.ts",
     "test:index": "mocha -r ts-node/register test/**/index.spec.ts",
     "test:endpoints": "start-server-and-test start http://127.0.0.1:3000/authorization test:index"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "IoT"
+  ],
+  "author": "Hendrik Scholz",
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.2.0",
     "@types/express": "^4.16.1",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.0.4",
+    "@types/node": "^12.7.3",
+    "@types/wait-on": "^3.2.0",
     "axios": "^0.19.0",
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
@@ -27,11 +31,13 @@
     "start-server-and-test": "^1.10.0",
     "ts-node": "^8.2.0",
     "tslint": "^5.17.0",
-    "typescript": "^3.5.1"
+    "typescript": "^3.5.1",
+    "wait-on": "^3.3.0"
   },
   "dependencies": {
     "express": "^4.17.1",
     "global": "^4.3.2",
+    "log4js": "^5.1.0",
     "mqtt": "^3.0.0"
   }
 }
