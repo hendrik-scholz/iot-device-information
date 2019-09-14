@@ -3,12 +3,15 @@ import { Express, Request, Response } from 'express';
 
 import { createLogger } from '../logger/logger';
 import { getAuthorization, getGeoposition, getIdentification, getThreeLawsOfRobotics } from '../messages/messageProvider';
+import { throttleRequest } from './throttle';
 
 const logger = createLogger();
 
 function startService(): void {
     const app: Express = express();
     const port = 3000;
+
+    app.use(throttleRequest);
 
     app.use((req: Request, res: Response, next: any) => {
         logger.info(`Incoming request: ${req.method}, endpoint: ${req.url}, headers: ${JSON.stringify(req.headers)}.`);

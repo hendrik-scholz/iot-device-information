@@ -53,3 +53,7 @@ Returns the Three Laws of Robotics.
 * File containing the response: threeLawsOfRobotics.json
 
 There is no need to edit the Three Laws of Robotics.
+
+### Throttle
+
+Requests are limited to 15 requests per minute at a rate of one request every four seconds.

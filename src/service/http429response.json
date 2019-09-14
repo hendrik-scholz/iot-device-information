@@ -1,0 +1,10 @@
+{
+    "errors": [
+      {
+        "status": "429",
+        "source": { "pointer": "" },
+        "title":  "Too Many Requests",
+        "detail": "Too Many Requests"
+      }
+    ]
+}

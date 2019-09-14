@@ -8,6 +8,10 @@ describe('iot-device-information', () => {
         const host = '127.0.0.1';
         const port = '3000';
 
+        beforeEach('wait for throttle to allow new requests', (done) => {
+            setTimeout(done, 5000);
+        });
+
         it('should test the authorization endpoint', (done) => {
             axios.get(`http://${host}:${port}/authorization`)
                 .then((response) => {
