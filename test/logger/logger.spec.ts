@@ -14,7 +14,13 @@ const waitOnOptions = {
 };
 
 function deleteLogFile(callback: any) {
-    fs.unlink('app.log', callback);
+    fs.unlink('app.log', (error) => {
+        if(error && error.errno === -2 && error.code === 'ENOENT') {
+            console.log('deleteLogFile: Since the log file does not exist there is nothing to delete.');
+        }
+
+        callback();
+    });
 }
 
 describe('iot-device-information', () => {

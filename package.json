@@ -2,7 +2,7 @@
   "name": "iot-device-information",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/service.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "npm run build:live",
     "build": "tsc -p .",
