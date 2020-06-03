@@ -3,3 +3,5 @@
 /app.log
 /.vscode
 /iot-device-information.code-workspace
+/test/messages/uuid.json
+/uuid.json
