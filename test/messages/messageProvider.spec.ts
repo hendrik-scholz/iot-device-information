@@ -2,7 +2,7 @@ import chai from 'chai';
 
 const expect = chai.expect;
 
-import { getAuthorization, getGeoposition, getIdentification, getRegistrationMessage, getThreeLawsOfRobotics } from '../../src/messages/messageProvider';
+import { getAuthorization, getGeoposition, getIdentification, getRegistrationMessage, getThreeLawsOfRobotics, getUUID } from '../../src/messages/messageProvider';
 
 describe('iot-device-information', () => {
     describe('messages', () => {
@@ -26,9 +26,22 @@ describe('iot-device-information', () => {
             expect(threeLawsOfRobotics).to.have.all.keys('first', 'second', 'third');
         });
 
+        it('should test the uuid message', (done) => {
+            getUUID()
+                .then((uuid: any) => {
+                    expect(uuid).to.have.all.keys('uuid');
+                    expect(uuid.length).to.equal(36);
+                    done();
+                })
+                .catch((error: any) => {
+                    done(error);
+                });
+        });
+
         it('should test the registration message', () => {
             const registrationMessage = getRegistrationMessage();
-            expect(registrationMessage).to.have.all.keys('authorization', 'geoposition', 'identification', 'timestamp');
+            expect(registrationMessage).to.have.all.keys('authorization', 'geoposition', 'identification', 'timestamp', 'uuid');
+            expect(registrationMessage.uuid.length).to.equal(36);
         });
     });
 });

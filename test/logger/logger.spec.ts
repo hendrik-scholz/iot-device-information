@@ -15,7 +15,7 @@ const waitOnOptions = {
 
 function deleteLogFile(callback: any) {
     fs.unlink('app.log', (error) => {
-        if(error && error.errno === -2 && error.code === 'ENOENT') {
+        if (error && error.errno === -2 && error.code === 'ENOENT') {
             console.log('deleteLogFile: Since the log file does not exist there is nothing to delete.');
         }
 
@@ -24,7 +24,8 @@ function deleteLogFile(callback: any) {
 }
 
 describe('iot-device-information', () => {
-    describe('logger', () => {
+    describe('logger', function() {
+        this.timeout(5000);
 
         before('delete log file', (done) => {
             deleteLogFile((error: any) => {

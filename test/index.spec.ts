@@ -4,7 +4,9 @@ import chai from 'chai';
 const expect = chai.expect;
 
 describe('iot-device-information', () => {
-    describe('endpoints', () => {
+    describe('endpoints', function() {
+        this.timeout(30000);
+
         const host = '127.0.0.1';
         const port = '3000';
 
@@ -56,6 +58,19 @@ describe('iot-device-information', () => {
             .then((response) => {
                 expect(response.status).to.equal(200);
                 expect(response.data).to.have.all.keys('first', 'second', 'third');
+                expect(response.data).not.to.have.keys('default');
+                done();
+            })
+            .catch((error) => {
+                done(error);
+            });
+        });
+
+        it('should test the uuid endpoint', (done) => {
+            axios.get(`http://${host}:${port}/uuid`)
+            .then((response) => {
+                expect(response.status).to.equal(200);
+                expect(response.data).to.have.all.keys('uuid');
                 expect(response.data).not.to.have.keys('default');
                 done();
             })

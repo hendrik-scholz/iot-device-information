@@ -12,12 +12,12 @@ function registerDeviceUsingMQTT(): void {
 
     if (mqttHost && mqttPort) {
         logger.info('Connecting to MQTT broker.');
-        const mqttClient  = mqtt.connect(`mqtt:${mqttHost}:${mqttPort}`);
+        const mqttClient = mqtt.connect(`mqtt://${mqttHost}:${mqttPort}`);
 
         mqttClient.on('connect', () => {
             logger.info('Successfully connected to MQTT broker.');
             logger.info('Publishing registration message to MQTT broker.');
-            mqttClient.publish('registration', JSON.stringify(getRegistrationMessage()));
+            mqttClient.publish('registration', JSON.stringify(getRegistrationMessage()), (error, res) => logger.info(`${error} ${res}`));
         });
 
         mqttClient.on('error', (error) => {

@@ -2,7 +2,7 @@ import express from 'express';
 import { Express, Request, Response } from 'express';
 
 import { createLogger } from '../logger/logger';
-import { getAuthorization, getGeoposition, getIdentification, getThreeLawsOfRobotics } from '../messages/messageProvider';
+import { getAuthorization, getGeoposition, getIdentification, getThreeLawsOfRobotics, getUUID} from '../messages/messageProvider';
 import { throttleRequest } from './throttle';
 
 const logger = createLogger();
@@ -22,6 +22,11 @@ function startService(): void {
     app.get('/geoposition', (req: Request, res: Response) => res.send(getGeoposition()));
     app.get('/identification', (req: Request, res: Response) => res.send(getIdentification()));
     app.get('/threelawsofrobotics', (req: Request, res: Response) => res.send(getThreeLawsOfRobotics()));
+    app.get('/uuid', (req: Request, res: Response) => {
+        getUUID()
+            .then(uuid => res.send(uuid))
+            .catch(error => res.send(error));
+    });
 
     app.listen(port, () => logger.info(`iot-device-information app listening on port ${port}!`));
 }
