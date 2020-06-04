@@ -50,8 +50,7 @@ function getUUID(): Promise<string> {
         } else if (fs.existsSync(uuidFileName)) {
             getUuidFromFile()
                 .then((uuidFromFile: any) => {
-                    uuid = uuidFromFile;
-                    resolve(uuid);
+                    resolve(uuidFromFile);
                 })
                 .catch((error: string) => {
                     logger.error(error);

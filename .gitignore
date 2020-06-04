@@ -5,3 +5,5 @@
 /iot-device-information.code-workspace
 /test/messages/uuid.json
 /uuid.json
+/.nyc_output
+/coverage

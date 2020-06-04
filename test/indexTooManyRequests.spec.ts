@@ -6,7 +6,7 @@ chai.use(deepEqualInAnyOrder);
 const expect = chai.expect;
 
 describe('iot-device-information', () => {
-    describe('endpoints to many requests', function() {
+    describe('endpoints (throttle)', function() {
         this.timeout(30000);
 
         const host = '127.0.0.1';
