@@ -6,7 +6,7 @@ You can run iot-device-information on your IoT device to give detailed informati
 
 ## Requirements
 
-In order to use iot-device-information you need an installation of Node.js. iot-device-information was developed with Node.js version v10.15.1.
+In order to use iot-device-information you need an installation of Node.js. iot-device-information was developed with Node.js version v12.16.1.
 
 ## Features
 
@@ -24,6 +24,8 @@ Returns information about the owner of the device.
 
 Replace the values given in authorization.json with values for your device.
 
+![Authorization](screenshots/authorization.png "Authorization")
+
 ### Geo Position
 
 Returns information about the geo position of the device.
@@ -33,6 +35,8 @@ Returns information about the geo position of the device.
 * File containing the response: geoposition.json
 
 Replace the values given in geoposition.json with values for your device.
+
+![Geo Position](screenshots/geoposition.png "Geo Position")
 
 ### Identification
 
@@ -44,6 +48,20 @@ Returns information about the device, the device version, and its purpose.
 
 Replace the values given in identification.json with values for your device.
 
+![Identification](screenshots/identification.png "Identification")
+
+### UUID
+
+Returns the device ID.
+
+* Request method: GET
+* Endpoint: /uuid
+* File containing the response: uuid.json
+
+The UUID is generated and saved to a file named uuid.json. This file should not be edited.
+
+![UUID](screenshots/uuid.png "UUID")
+
 ### Three Laws Of Robotics
 
 Returns the Three Laws of Robotics.
@@ -54,6 +72,10 @@ Returns the Three Laws of Robotics.
 
 There is no need to edit the Three Laws of Robotics.
 
+![Three Laws Of Robotics](screenshots/threelawsofrobotics.png "Three Laws Of Robotics")
+
 ### Throttle
 
 Requests are limited to 15 requests per minute at a rate of one request every four seconds.
+
+![Throttle](screenshots/throttle.png "Throttle")
