@@ -12,7 +12,34 @@ In order to use iot-device-information you need an installation of Node.js. iot-
 
 ### Register
 
-Publishes a register message to an MQTT broker on startup. The connection details can be edited in the configuration.json.
+Publishes a register message to an MQTT broker on startup. The connection details for the MQTT broker can be edited in the configuration.json.
+
+```
+{
+    "authorization": {
+        "name": "Lawrence Robertson",
+        "role": "C.E.O.",
+        "deedOwner": "U.S. Robotics Corporation"
+    },
+    "geoposition": {
+        "latitude": -72.080605,
+        "longitude": 25.025266
+    },
+    "identification": {
+        "company": "USR",
+        "device": "Demolition Robot",
+        "schedule": [
+            {
+                "dateTime": "2004-07-07T08:00:00.00Z",
+                "description": "demolition"
+            }
+        ],
+        "version": "9-4"
+    },
+    "timestamp": "2004-07-06T08:00:00.00Z",
+    "uuid": "551a82e3-6016-42e3-943e-3fcc4832dc7c"
+}
+```
 
 ### Authorization
 
