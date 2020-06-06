@@ -28,9 +28,8 @@ describe('iot-device-information', () => {
 
         it('should test the uuid message', (done) => {
             getUUID()
-                .then((uuidFromFile: any) => {
-                    expect(uuidFromFile).to.have.all.keys('uuid');
-                    expect(uuidFromFile.uuid.length).to.equal(36);
+                .then((uuidFromFile: string) => {
+                    expect(uuidFromFile.length).to.equal(36);
                     done();
                 })
                 .catch((error: any) => {
@@ -38,10 +37,14 @@ describe('iot-device-information', () => {
                 });
         });
 
-        it.skip('should test the registration message', () => {
-            const registrationMessage = getRegistrationMessage();
-            expect(registrationMessage).to.have.all.keys('authorization', 'geoposition', 'identification', 'timestamp', 'uuid');
-            expect(registrationMessage.uuid.length).to.equal(36);
+        it('should test the registration message', (done) => {
+            getRegistrationMessage()
+                .then((registrationMessage) => {
+                    expect(registrationMessage).to.have.all.keys('authorization', 'geoposition', 'identification', 'timestamp', 'uuid');
+                    expect(registrationMessage.uuid.length).to.equal(36);
+                    done();
+                })
+                .catch(error => done(error));
         });
     });
 });

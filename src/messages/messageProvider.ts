@@ -35,8 +35,16 @@ function getIdentification(): any {
     return identification;
 }
 
-function getRegistrationMessage(): any {
-    return registrationMessage;
+function getRegistrationMessage(): Promise<any> {
+    return new Promise((resolve, reject) => {
+        getUUID()
+            .then((generatedUuid) => {
+                uuid = generatedUuid;
+                registrationMessage.uuid = generatedUuid;
+                resolve(registrationMessage);
+            })
+            .catch(error => reject(error));
+    });
 }
 
 function getThreeLawsOfRobotics(): any {
@@ -50,6 +58,7 @@ function getUUID(): Promise<string> {
         } else if (fs.existsSync(uuidFileName)) {
             getUuidFromFile()
                 .then((uuidFromFile: any) => {
+
                     resolve(uuidFromFile);
                 })
                 .catch((error: string) => {
@@ -59,7 +68,7 @@ function getUUID(): Promise<string> {
         } else {
             uuid = generateUUID();
             generateUUIDMessage(uuidFileName, uuid);
-            resolve(JSON.stringify({ uuid }));
+            resolve(uuid);
         }
     });
 }
@@ -75,7 +84,7 @@ function getUuidFromFile(): any {
                 reject(`Unable to find file named ${uuidFileName}.`);
              } else {
                 const uuidEntry = JSON.parse(Buffer.from(content).toString());
-                resolve(uuidEntry);
+                resolve(uuidEntry.uuid);
              }
         });
     });

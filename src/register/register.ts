@@ -18,15 +18,20 @@ function registerDeviceUsingMQTT(): void {
         mqttClient.on('connect', () => {
             logger.info('Successfully connected to MQTT broker.');
             logger.info('Publishing registration message to MQTT broker.');
-            mqttClient.publish(registrationTopic, JSON.stringify(getRegistrationMessage()), (error, response) => {
-                if (error) {
-                    logger.error(`Error: ${error}.`);
-                } else if (response) {
-                    logger.info(`Published registration message. Response: ${response}.`);
-                } else {
-                    logger.info(`Published registration message.`);
-                }
-            });
+
+            getRegistrationMessage()
+                .then((registrationMessage) => {
+                    mqttClient.publish(registrationTopic, JSON.stringify(registrationMessage), (error, response) => {
+                        if (error) {
+                            logger.error(`Error: ${error}.`);
+                        } else if (response) {
+                            logger.info(`Published registration message. Response: ${response}.`);
+                        } else {
+                            logger.info(`Published registration message.`);
+                        }
+                    });
+                })
+                .catch(error => logger.error(error));
         });
 
         mqttClient.on('error', (error) => {
