@@ -24,7 +24,7 @@ function startService(): void {
     app.get('/threelawsofrobotics', (req: Request, res: Response) => res.send(getThreeLawsOfRobotics()));
     app.get('/uuid', (req: Request, res: Response) => {
         getUUID()
-            .then(uuid => res.send(uuid))
+            .then(uuid => res.send({uuid}))
             .catch(error => res.send(error));
     });
 
