@@ -9,6 +9,7 @@ const logger = createLogger();
 function registerDeviceUsingMQTT(): void {
     const mqttHost = configuration.mqttHost;
     const mqttPort = configuration.mqttPort;
+    const registrationTopic = configuration.registrationTopic;
 
     if (mqttHost && mqttPort) {
         logger.info('Connecting to MQTT broker.');
@@ -17,7 +18,15 @@ function registerDeviceUsingMQTT(): void {
         mqttClient.on('connect', () => {
             logger.info('Successfully connected to MQTT broker.');
             logger.info('Publishing registration message to MQTT broker.');
-            mqttClient.publish('registration', JSON.stringify(getRegistrationMessage()), (error, res) => logger.info(`${error} ${res}`));
+            mqttClient.publish(registrationTopic, JSON.stringify(getRegistrationMessage()), (error, response) => {
+                if (error) {
+                    logger.error(`Error: ${error}.`);
+                } else if (response) {
+                    logger.info(`Published registration message. Response: ${response}.`);
+                } else {
+                    logger.info(`Published registration message.`);
+                }
+            });
         });
 
         mqttClient.on('error', (error) => {

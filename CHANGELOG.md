@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - added UUID generation
 - added code coverage tool
 ### Changed
+- made MQTT topic name for register message configurable
 - updated README file
 
 ## [1.1.0] - 2019-09-14

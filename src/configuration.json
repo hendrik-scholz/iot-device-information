@@ -1,4 +1,5 @@
 {
     "mqttHost": "127.0.0.1",
-    "mqttPort": 1883
+    "mqttPort": 1883,
+    "registrationTopic": "device/registration"
 }
