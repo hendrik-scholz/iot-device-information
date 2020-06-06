@@ -11,7 +11,8 @@
     "test": "start-server-and-test start http://127.0.0.1:3000/uuid tests"
   },
   "keywords": [
-    "IoT"
+    "IoT",
+    "IoT device"
   ],
   "author": "Hendrik Scholz",
   "license": "MIT",
