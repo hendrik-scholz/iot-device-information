@@ -1,6 +1,6 @@
 {
   "name": "iot-device-information",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.9.5",
     "@types/wait-on": "^4.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chai": "^4.2.0",
     "deep-equal-in-any-order": "^1.0.25",
     "eslint": "^6.8.0",
@@ -40,8 +40,8 @@
     "@types/uuid": "^7.0.2",
     "express": "^4.17.1",
     "global": "^4.4.0",
-    "log4js": "^6.1.2",
-    "mqtt": "^3.0.0",
+    "log4js": "^6.3.0",
+    "mqtt": "^4.2.6",
     "uuid": "^3.3.3"
   }
 }
