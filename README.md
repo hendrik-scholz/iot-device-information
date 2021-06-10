@@ -6,7 +6,7 @@ You can run iot-device-information on your IoT device to give detailed informati
 
 ## Requirements
 
-In order to use iot-device-information you need an installation of Node.js. iot-device-information was developed with Node.js version v12.16.1.
+In order to use iot-device-information you need an installation of Node.js. iot-device-information was developed with Node.js version v14.16.1.
 
 ## Features
 
