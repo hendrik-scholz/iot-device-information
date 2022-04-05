@@ -1,5 +1,6 @@
 {
     "mqttHost": "127.0.0.1",
     "mqttPort": 1883,
-    "registrationTopic": "device/registration"
+    "registrationTopic": "device/registration",
+    "timeBetweenRequestsInMs": 0
 }

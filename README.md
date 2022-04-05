@@ -103,6 +103,6 @@ There is no need to edit the Three Laws of Robotics.
 
 ### Throttle
 
-Requests are limited to 15 requests per minute at a rate of one request every four seconds.
+Requests can be limited to a certain rate. The minimum time between requests can be set in the configuration.json.
 
 ![Throttle](screenshots/throttle.png "Throttle")

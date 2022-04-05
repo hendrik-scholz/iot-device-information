@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "77edde1b-dce8-4e56-a832-0da62c600bac",
+		"name": "iot-device-information",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'name'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('name').that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'role'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('role').that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'deedOwner'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('deedOwner').that.is.a('string');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/authorization",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"authorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/geoposition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'latitude'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('latitude').that.is.a('number');",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'longitude'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('longitude').that.is.a('number');;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/geoposition",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"geoposition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/identification",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'company'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('company').that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'device'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('device').that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'version'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('version').that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'schedule'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('schedule').that.is.an('array');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/identification",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"identification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'uuid'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('uuid').that.is.a('string');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/uuid",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"uuid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/threelawsofrobotics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'first'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('first').that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Value of property 'first'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.first).to.equal('A robot may not injure a human being or, through inaction, allow a human being to come to harm.');",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'second'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('second').that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Value of property 'second'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.second).to.equal('A robot must obey the orders given it by human beings except where such orders would conflict with the First Law.');",
+							"});",
+							"",
+							"pm.test(\"Response contains property 'third'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('third').that.is.a('string');",
+							"});",
+							"",
+							"pm.test(\"Value of property 'third'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.third).to.equal('A robot must protect its own existence as long as such protection does not conflict with the First or Second Laws.');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/threelawsofrobotics",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"threelawsofrobotics"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
